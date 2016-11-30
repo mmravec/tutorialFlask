@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+<ul>
+
+    {% for user in users %}
+    <li><a>{{  user  }}</a></li>
+    {% endfor %}
+</ul>
+
+<a>Array:</a>
+<ul>
+
+    {% for number in array %}
+        {{ number }}<a>, </a>
+    {% endfor %}
+</ul>
+
+<ul>
+
+    {{ number }}
+
+</ul>
+
+{% block body %}
+
+    <div class="block1">
+    <h1>Hello {{ name }}</h1>
+    <h2>Here is an interensting quote for you: </h2>
+    
+    <p>
+        {{ quote }}
+    </p>
+    <img src="http://www.naturalprogramming.com/images/smilingpython.gif">
+    </div>
+
+{% endblock %}
+
+</body>
+</html>
