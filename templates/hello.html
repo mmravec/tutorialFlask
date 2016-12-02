@@ -5,40 +5,74 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-<ul>
-
-    {% for user in users %}
-    <li><a>{{  user  }}</a></li>
-    {% endfor %}
-</ul>
-
-<a>Array:</a>
-<ul>
-
-    {% for number in array %}
-        {{ number }}<a>, </a>
-    {% endfor %}
-</ul>
-
-<ul>
-
-    {{ number }}
-
-</ul>
-
+<link rel="stylesheet" href="/static/style.css" type="text/css">
 {% block body %}
+{% if session['logged_in'] %}
+<p>You're logged in already!</p>
+{% else %}
 
-    <div class="block1">
-    <h1>Hello {{ name }}</h1>
-    <h2>Here is an interensting quote for you: </h2>
-    
-    <p>
-        {{ quote }}
-    </p>
-    <img src="http://www.naturalprogramming.com/images/smilingpython.gif">
-    </div>
 
+<form action="/login" method="POST">
+	<div class="login">
+		<div class="login-screen">
+			<div class="app-title">
+				<h1>Login</h1>
+			</div>
+
+			<div class="login-form">
+				<div class="control-group">
+				<input type="text" class="login-field" value="" placeholder="username" name="username">
+				<label class="login-field-icon fui-user" for="login-name"></label>
+				</div>
+
+				<div class="control-group">
+				<input type="password" class="login-field" value="" placeholder="password" name="password">
+				<label class="login-field-icon fui-lock" for="login-pass"></label>
+				</div>
+
+                <input type="submit" value="Log in" class="btn btn-primary btn-large btn-block" >
+			    <br>
+			</div>
+		</div>
+	</div>
+</form>
+
+{% endif %}
 {% endblock %}
+{#<ul>#}
+{##}
+{#    {% for user in users %}#}
+{#    <li><a>{{  user  }}</a></li>#}
+{#    {% endfor %}#}
+{#</ul>#}
+{##}
+{#<a>Array:</a>#}
+{#<ul>#}
+{##}
+{#    {% for number in array %}#}
+{#        {{ number }}<a>, </a>#}
+{#    {% endfor %}#}
+{#</ul>#}
+{##}
+{#<ul>#}
+{##}
+{#    {{ number }}#}
+{##}
+{#</ul>#}
+{##}
+{#{% block body %}#}
+{##}
+{#    <div class="block1">#}
+{#    <h1>Hello {{ name }}</h1>#}
+{#    <h2>Here is an interensting quote for you: </h2>#}
+{#    #}
+{#    <p>#}
+{#        {{ quote }}#}
+{#    </p>#}
+{#    <img src="http://www.naturalprogramming.com/images/smilingpython.gif">#}
+{#    </div>#}
+{##}
+{#{% endblock %}#}
 
 </body>
 </html>
